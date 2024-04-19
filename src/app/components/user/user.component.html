@@ -1,0 +1,16 @@
+<h1>{{ user }}</h1>
+@if (existenciaUsuario) {
+  <p>Si existe el usuario pudes continuar</p>
+}@else {
+  <p>pipipi no existe</p>
+} @for (user of users; track user.id) {
+  <p>ID = {{ user.id }}</p>
+  <p>NAME = {{ user.name | uppercase}}</p>
+  <p>AGE = {{ user.age }}</p>
+  <p>ROL = {{ user.rol }}</p>
+
+}
+
+<p>The user's name is {{ rol }}</p>
+
+<button (click)="messageParent()">Message for parent</button>

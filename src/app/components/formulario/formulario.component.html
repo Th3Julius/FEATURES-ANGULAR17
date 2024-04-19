@@ -1,0 +1,32 @@
+<section>
+  <h1>Fomulario</h1>
+  <form>
+    <label for="framework"> Favorite framework: </label>
+    <input
+      class="text-black" 
+      type="text" 
+      id="framework"
+      [(ngModel)]="favoriteFramework"
+      [ngModelOptions]="{standalone : true}" 
+    />
+  </form>
+  {{favoriteFramework}}
+</section>
+<section class="m-10 flex flex-col justify-center items-center gap-5">
+  <h1>REACTIVE FORMS</h1>
+  <form class="flex flex-col gap-4 " [formGroup]="loginFrom" (ngSubmit)="handleFormSub()">
+    <label>
+      Name
+      <input type="text" formControlName="name" class="text-black p-2 rounded-full w-64" > 
+    </label>
+    
+    <label>
+      Hotmail
+      <input type="email" formControlName="email" class="text-black p-2 rounded-full w-64">
+    </label>
+    <button [disabled]="!loginFrom.valid" type="submit">Submit</button>
+  </form>
+
+  <p>NAME : {{loginFrom.value.name}}</p>
+  <p>EMAIL : {{loginFrom.value.email}}</p>
+</section>
